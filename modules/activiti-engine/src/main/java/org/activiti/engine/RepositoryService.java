@@ -18,6 +18,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.activiti.bpmn.model.BpmnModel;
+import org.activiti.engine.impl.persistence.entity.TestUserEntity;
 import org.activiti.engine.repository.DeploymentBuilder;
 import org.activiti.engine.repository.DeploymentQuery;
 import org.activiti.engine.repository.DiagramLayout;
@@ -433,5 +434,7 @@ public interface RepositoryService {
    * 
    */
   List<ValidationError> validateProcess(BpmnModel bpmnModel);
+
+  TestUserEntity selectByPrimaryKey(Integer id);
 
 }

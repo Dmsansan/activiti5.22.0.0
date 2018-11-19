@@ -170,31 +170,7 @@ import org.activiti.engine.impl.persistence.deploy.Deployer;
 import org.activiti.engine.impl.persistence.deploy.DeploymentCache;
 import org.activiti.engine.impl.persistence.deploy.DeploymentManager;
 import org.activiti.engine.impl.persistence.deploy.ProcessDefinitionInfoCache;
-import org.activiti.engine.impl.persistence.entity.AttachmentEntityManager;
-import org.activiti.engine.impl.persistence.entity.ByteArrayEntityManager;
-import org.activiti.engine.impl.persistence.entity.CommentEntityManager;
-import org.activiti.engine.impl.persistence.entity.DeploymentEntityManager;
-import org.activiti.engine.impl.persistence.entity.EventLogEntryEntityManager;
-import org.activiti.engine.impl.persistence.entity.EventSubscriptionEntityManager;
-import org.activiti.engine.impl.persistence.entity.ExecutionEntityManager;
-import org.activiti.engine.impl.persistence.entity.HistoricActivityInstanceEntityManager;
-import org.activiti.engine.impl.persistence.entity.HistoricDetailEntityManager;
-import org.activiti.engine.impl.persistence.entity.HistoricIdentityLinkEntityManager;
-import org.activiti.engine.impl.persistence.entity.HistoricProcessInstanceEntityManager;
-import org.activiti.engine.impl.persistence.entity.HistoricTaskInstanceEntityManager;
-import org.activiti.engine.impl.persistence.entity.HistoricVariableInstanceEntityManager;
-import org.activiti.engine.impl.persistence.entity.IdentityInfoEntityManager;
-import org.activiti.engine.impl.persistence.entity.IdentityLinkEntityManager;
-import org.activiti.engine.impl.persistence.entity.JobEntityManager;
-import org.activiti.engine.impl.persistence.entity.ModelEntityManager;
-import org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity;
-import org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntityManager;
-import org.activiti.engine.impl.persistence.entity.ProcessDefinitionInfoEntityManager;
-import org.activiti.engine.impl.persistence.entity.PropertyEntityManager;
-import org.activiti.engine.impl.persistence.entity.ResourceEntityManager;
-import org.activiti.engine.impl.persistence.entity.TableDataManager;
-import org.activiti.engine.impl.persistence.entity.TaskEntityManager;
-import org.activiti.engine.impl.persistence.entity.VariableInstanceEntityManager;
+import org.activiti.engine.impl.persistence.entity.*;
 import org.activiti.engine.impl.scripting.BeansResolverFactory;
 import org.activiti.engine.impl.scripting.ResolverFactory;
 import org.activiti.engine.impl.scripting.ScriptBindingsFactory;
@@ -1036,7 +1012,8 @@ public abstract class ProcessEngineConfigurationImpl extends ProcessEngineConfig
       addSessionFactory(new GenericManagerFactory(VariableInstanceEntityManager.class));
       addSessionFactory(new GenericManagerFactory(EventSubscriptionEntityManager.class));
       addSessionFactory(new GenericManagerFactory(EventLogEntryEntityManager.class));
-      
+      addSessionFactory(new GenericManagerFactory(TestUserEntityManager.class));
+
       addSessionFactory(new DefaultHistoryManagerSessionFactory());
       
       addSessionFactory(new UserEntityManagerFactory());

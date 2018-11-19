@@ -19,28 +19,7 @@ import org.activiti.engine.impl.db.DbSqlSession;
 import org.activiti.engine.impl.db.PersistentObject;
 import org.activiti.engine.impl.history.HistoryManager;
 import org.activiti.engine.impl.interceptor.Session;
-import org.activiti.engine.impl.persistence.entity.AttachmentEntityManager;
-import org.activiti.engine.impl.persistence.entity.ByteArrayEntityManager;
-import org.activiti.engine.impl.persistence.entity.DeploymentEntityManager;
-import org.activiti.engine.impl.persistence.entity.EventSubscriptionEntityManager;
-import org.activiti.engine.impl.persistence.entity.ExecutionEntityManager;
-import org.activiti.engine.impl.persistence.entity.GroupIdentityManager;
-import org.activiti.engine.impl.persistence.entity.HistoricActivityInstanceEntityManager;
-import org.activiti.engine.impl.persistence.entity.HistoricDetailEntityManager;
-import org.activiti.engine.impl.persistence.entity.HistoricIdentityLinkEntityManager;
-import org.activiti.engine.impl.persistence.entity.HistoricProcessInstanceEntityManager;
-import org.activiti.engine.impl.persistence.entity.HistoricTaskInstanceEntityManager;
-import org.activiti.engine.impl.persistence.entity.HistoricVariableInstanceEntityManager;
-import org.activiti.engine.impl.persistence.entity.IdentityInfoEntityManager;
-import org.activiti.engine.impl.persistence.entity.IdentityLinkEntityManager;
-import org.activiti.engine.impl.persistence.entity.MembershipIdentityManager;
-import org.activiti.engine.impl.persistence.entity.ModelEntityManager;
-import org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntityManager;
-import org.activiti.engine.impl.persistence.entity.ProcessDefinitionInfoEntityManager;
-import org.activiti.engine.impl.persistence.entity.ResourceEntityManager;
-import org.activiti.engine.impl.persistence.entity.TaskEntityManager;
-import org.activiti.engine.impl.persistence.entity.UserIdentityManager;
-import org.activiti.engine.impl.persistence.entity.VariableInstanceEntityManager;
+import org.activiti.engine.impl.persistence.entity.*;
 
 
 /**
@@ -100,7 +79,10 @@ public abstract class AbstractManager implements Session {
   protected IdentityLinkEntityManager getIdentityLinkManager() {
     return getSession(IdentityLinkEntityManager.class);
   }
-  
+
+  protected TestUserEntityManager getTestUserEntityManager(){
+    return  getSession(TestUserEntityManager.class);
+  }
   protected EventSubscriptionEntityManager getEventSubscriptionManager() {
   	return (getSession(EventSubscriptionEntityManager.class));
   }
