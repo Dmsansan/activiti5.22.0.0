@@ -22,8 +22,9 @@ public class TestController {
     }
 
     @RequestMapping("/getUser")
-        public User selectByPrimaryKey(HttpServletRequest request){
-       User user = new User();
+    public User selectByPrimaryKey(HttpServletRequest request){
+        int id = Integer.parseInt(request.getParameter("id"));
+        User user = userService.selectByPrimaryKey(id);
         return user;
     }
 }
